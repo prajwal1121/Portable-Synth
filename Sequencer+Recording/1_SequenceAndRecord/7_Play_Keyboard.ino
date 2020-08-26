@@ -30,8 +30,8 @@ void playKeyboard(){
         else{
           //If free, play instrument
           if (!keyMode[i]){
-          OnNoteOn(chan,i+octave,100);
-          sequenceNote(i+octave);
+          OnNoteOn(chan,i+octave,currentVelocity);
+          sequenceNote(i+octave,currentVelocity);
           }
         }
         keystate[i] = 1;
@@ -40,7 +40,7 @@ void playKeyboard(){
     else{
       if (keystate[i]){
         if (keyMode[i] == 2) stopPlaying(i);
-        OnNoteOff(chan,i+octave,100);
+        OnNoteOff(chan,i+octave,currentVelocity);
         keystate[i] = 0;
       }
     }
@@ -49,7 +49,7 @@ void playKeyboard(){
 
   if (addRest){
     if(!controlstate[0]){
-      sequenceNote(0);
+      sequenceNote(0,0);
       controlstate[0] = 1;
     }
   }
@@ -61,7 +61,7 @@ void playKeyboard(){
 
   if (addHold){
     if(!controlstate[1]){
-      sequenceNote(2);
+      sequenceNote(2,0);
       controlstate[1] = 1;
     }
   }

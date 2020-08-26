@@ -13,10 +13,10 @@ void OnNoteOn(byte channel, byte note, byte velocity) {
   int wavetable_id = allocateVoice(channel, note);
   switch (channel) {
   case 1:
-    wavetable[wavetable_id].setInstrument(distortiongt);
+    wavetable[wavetable_id].setInstrument(piano);
     break;
   case 2:
-    wavetable[wavetable_id].setInstrument(piano);
+    wavetable[wavetable_id].setInstrument(distortiongt);
     break;
   case 3:
     wavetable[wavetable_id].setInstrument(Ocarina);

@@ -87,6 +87,8 @@ voice_t voices[TOTAL_VOICES];
 
 byte chan = 1;
 int8_t octave = 48;
+float currentInputGain = 1.0;
+int currentVelocity = currentInputGain*127.0;
 
 /*
  * Sequencer Globals
@@ -99,6 +101,7 @@ struct sequences {
   byte timeSignature;
   byte instrument;
   byte notes[numSequenceNotes];
+  byte gains[numSequenceNotes];
 };
 sequences seqs[numSequences];
 byte currentSequence = 0;
@@ -258,6 +261,7 @@ void setup() {
   for (byte s = 0; s < numSequences; s++){
     for (byte n = 0; n < numSequenceNotes; n++){
       seqs[s].notes[n] = 0;
+      seqs[s].gains[n] = 0;
     }
     sequenceCounter[s] = 0;
     sequenceLength[s] = 0;
@@ -286,6 +290,9 @@ void setup() {
 
   AudioInterrupts();
   display.clearDisplay();
+
+  //Sanity delay
+  delay(1000);
 }
 
 //Update Timer

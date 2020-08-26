@@ -7,19 +7,21 @@ bool triggered[numSequences] = {0,0,0,0};
 void eraseSequenceNum(byte sequence){
   for (byte n = 0; n < sequenceLength[sequence]; n++){
     seqs[sequence].notes[n] = 0;
+    seqs[sequence].gains[n] = 0;
   }
   sequenceLength[sequence] = 0;
   sequenceCounter[sequence] = 0;
   seqs[sequence].instrument = chan;
 }
 
-void sequenceNote(byte note){
+void sequenceNote(byte note, byte velocity){
   if (recordSequenceSelect){
     if (sequenceCounter[currentSequence] == 0){
       seqs[currentSequence].instrument = chan;
     }
     if (sequenceCounter[currentSequence] < numSequenceNotes){
       seqs[currentSequence].notes[sequenceCounter[currentSequence]] = note;
+      seqs[currentSequence].gains[sequenceCounter[currentSequence]] = velocity;
       sequenceCounter[currentSequence]++;
       sequenceLength[currentSequence]++;
     }
@@ -130,7 +132,7 @@ void playSequence(byte sequence){
       OnNoteOff(seqs[sequence].instrument,holdvalue[sequence],100);
       holdflag[sequence] = false;
       if(seqs[sequence].notes[sequenceCounter[sequence]]){
-        OnNoteOn(seqs[sequence].instrument,seqs[sequence].notes[sequenceCounter[sequence]],100);
+        OnNoteOn(seqs[sequence].instrument,seqs[sequence].notes[sequenceCounter[sequence]],seqs[sequence].gains[sequenceCounter[sequence]]);
       }
     }
     else if (!(seqs[sequence].notes[sequenceCounter[sequence]] == 2)){
@@ -141,7 +143,7 @@ void playSequence(byte sequence){
         OnNoteOff(seqs[sequence].instrument,seqs[sequence].notes[sequenceCounter[sequence]-1],100);
       }
       if(seqs[sequence].notes[sequenceCounter[sequence]]){
-        OnNoteOn(seqs[sequence].instrument,seqs[sequence].notes[sequenceCounter[sequence]],100);
+        OnNoteOn(seqs[sequence].instrument,seqs[sequence].notes[sequenceCounter[sequence]],seqs[sequence].gains[sequenceCounter[sequence]]);
       }
     }
     else if (!holdflag[sequence]){

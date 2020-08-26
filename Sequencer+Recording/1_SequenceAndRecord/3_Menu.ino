@@ -85,6 +85,14 @@ void menuCheck() {
         }
       }
     }
+
+    //Adjust input gain
+    valChange = encoders[1]-valChange;
+    currentInputGain = currentInputGain + 0.05*valChange;
+    if (currentInputGain < 0) currentInputGain = 0;
+    if (currentInputGain > 1.0) currentInputGain = 1.0;
+    currentVelocity = currentInputGain*127.0;
+    valChange = encoders[1];
   }
 
   //Actions for Sequencer Menu
@@ -361,19 +369,21 @@ void staticMenu() {
 
   //Graphics for Wavetable Synthesis Menu
   if (menuScreen == 1){
+    //Write out header
+    display.clearDisplay();
+    display.setTextSize(1);
+    display.setTextColor(SSD1306_WHITE);
+    display.setCursor(35, 2);
+    display.print("Instrument");
+    display.drawLine(0,10,127,10, WHITE);
+    display.drawLine(16,0,16,10, WHITE);
+    display.drawLine(0,0,0,10, WHITE);
+    display.drawLine(0,0,16,0, WHITE);
+    
     //Write out Instrument Names
     display.setTextSize(1);
-    display.setCursor(10, 0);
+    display.setCursor(10, 15);
     if (chan == 1){
-      display.setTextColor(SSD1306_BLACK, SSD1306_WHITE);
-    }
-    else{
-      display.setTextColor(SSD1306_WHITE);
-    }
-    display.println("Distortion Guitar");
-  
-    display.setCursor(10, 12);
-    if (chan == 2){
       display.setTextColor(SSD1306_BLACK, SSD1306_WHITE);
     }
     else{
@@ -381,7 +391,16 @@ void staticMenu() {
     }
     display.println("Piano");
   
-    display.setCursor(10,24);
+    display.setCursor(10, 27);
+    if (chan == 2){
+      display.setTextColor(SSD1306_BLACK, SSD1306_WHITE);
+    }
+    else{
+      display.setTextColor(SSD1306_WHITE);
+    }
+    display.println("Dist. Guitar");
+  
+    display.setCursor(10,39);
     if (chan == 3){
       display.setTextColor(SSD1306_BLACK, SSD1306_WHITE);
     }
@@ -390,7 +409,7 @@ void staticMenu() {
     }
     display.println("Ocarina");
   
-    display.setCursor(10, 36);
+    display.setCursor(10, 51);
     if (chan == 4){
       display.setTextColor(SSD1306_BLACK, SSD1306_WHITE);
     }
@@ -399,7 +418,7 @@ void staticMenu() {
     }
     display.println("Drums");
   
-    display.setCursor(10, 48);
+    display.setCursor(10, 63);
     if (chan == 5){
       display.setTextColor(SSD1306_BLACK, SSD1306_WHITE);
     }
@@ -410,20 +429,32 @@ void staticMenu() {
     display.setTextColor(SSD1306_WHITE);
 
     //Show Cursor
-    display.setCursor(2, ((menuCount) * 12));
+    display.setCursor(2, 15+((menuCount) * 12));
     display.println(">");
 
     //Show octave
     display.setTextSize(1);
-    display.setCursor(110, 48);
+    display.setCursor(3, 2);
     display.setTextColor(SSD1306_WHITE);
     display.println(octave);
+
+    //Show Input Gain
+    if (currentInputGain <= 1.0){
+      int circleLoc = 59.0-currentInputGain*44.0;
+      display.drawLine(122,59,122,circleLoc, WHITE);
+      display.fillCircle(122, circleLoc, 3, SSD1306_WHITE);
+    }
+    else{
+      display.drawLine(122,59,122,23, WHITE);
+      display.drawLine(100,23,122,23, WHITE);
+      display.setCursor(100, 15);
+      display.print(currentInputGain);
+    }
   }
 
   //Graphics for Sequencer Menu
   if (menuScreen == 2){
     //Write out header
-    display.clearDisplay();
     display.setTextSize(1);
     display.setTextColor(SSD1306_WHITE);
     display.setCursor(30, 0);
@@ -536,7 +567,7 @@ void staticMenu() {
       display.drawLine(0,0,0,10, WHITE);
 
       //Show output gain
-      display.setCursor(90, 0);
+      display.setCursor(90, 2);
       display.print("G ");
       display.print(outputGain);
 
