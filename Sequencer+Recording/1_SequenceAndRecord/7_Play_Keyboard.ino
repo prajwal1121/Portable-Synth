@@ -23,10 +23,16 @@ void playKeyboard(){
         if (keyMode[i] == 1) startPlaying(i);
         if (keyMode[i] == 2) continuePlaying(i);
 
-        //If free, play instrument
-        if (!keyMode[i]){
-        OnNoteOn(chan,i+octave,100);
-        sequenceNote(i+octave);
+        //If on tap tempo mode, dedicate entire keyboard
+        if (metronomeEnable == 1){
+          tapMetronome();
+        }
+        else{
+          //If free, play instrument
+          if (!keyMode[i]){
+          OnNoteOn(chan,i+octave,100);
+          sequenceNote(i+octave);
+          }
         }
         keystate[i] = 1;
       }

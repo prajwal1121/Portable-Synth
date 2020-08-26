@@ -8,6 +8,7 @@
 #include "standard_DRUMS_samples.h"
 #include "distortiongt_samples.h"
 #include "Ocarina_samples.h"
+#include "AudioSampleMetronome.h"
 
 #include <Audio.h>
 #include <Wire.h>
@@ -17,6 +18,7 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 #include <WS2812Serial.h>
+#include <ArduinoTapTempo.h>
 #define OLED_RESET -1 
 
 Adafruit_SSD1306 display(128, 64, &Wire, OLED_RESET);
@@ -40,9 +42,7 @@ AudioConnection patchCord[] = {
   {wavetable[24], 0, synth_mixer[6], 0}, {wavetable[25], 0, synth_mixer[6], 1}, {wavetable[26], 0, synth_mixer[6],  2}, {wavetable[27], 0, synth_mixer[6],  3}, {synth_mixer[6], 0, synth_mixer[TOTAL_SYNTH_MIXERS - 3], 2},
   {wavetable[28], 0, synth_mixer[7], 0}, {wavetable[29], 0, synth_mixer[7], 1}, {wavetable[30], 0, synth_mixer[7],  2}, {wavetable[31], 0, synth_mixer[7],  3}, {synth_mixer[7], 0, synth_mixer[TOTAL_SYNTH_MIXERS - 3], 3},
   {synth_mixer[TOTAL_SYNTH_MIXERS - 2], 0, synth_mixer[TOTAL_SYNTH_MIXERS - 1], 0},
-  {synth_mixer[TOTAL_SYNTH_MIXERS - 3], 0, synth_mixer[TOTAL_SYNTH_MIXERS - 1], 1},
-  {synth_mixer[TOTAL_SYNTH_MIXERS - 1], 0, i2s1, 0},
-  {synth_mixer[TOTAL_SYNTH_MIXERS - 1], 0, i2s1, 1},
+  {synth_mixer[TOTAL_SYNTH_MIXERS - 3], 0, synth_mixer[TOTAL_SYNTH_MIXERS - 1], 1}
 };
 
 //Audio Network for Recorder
@@ -64,6 +64,17 @@ AudioConnection          patchCord7(record_output_mixer, 0, record_output_peak, 
 AudioConnection          patchCord8(record_output_mixer, 0, synth_mixer[TOTAL_SYNTH_MIXERS - 1], 2);
 AudioConnection          patchCord9(synth_mixer[TOTAL_SYNTH_MIXERS - 1], 0, internal_recording_queue, 0);
 
+//Audio Network for Metronome
+AudioPlayMemory          metronome;
+AudioMixer4              metronome_mixer;
+AudioConnection          patchCord10(metronome, 0, metronome_mixer, 0);
+AudioConnection          patchCord11(synth_mixer[TOTAL_SYNTH_MIXERS - 1], 0, metronome_mixer, 1);
+AudioConnection          patchCord12(metronome_mixer, 0, i2s1, 0);
+AudioConnection          patchCord13(metronome_mixer, 0, i2s1, 1); 
+
+//Tap metronome controller
+ArduinoTapTempo tapTempo;
+
 /*
  * Wavetable Globals
  */
@@ -81,7 +92,7 @@ int8_t octave = 48;
  * Sequencer Globals
  */
 #define numSequences 4
-#define numSequenceNotes 40
+#define numSequenceNotes 60
 #define numTSigs 6
 
 struct sequences {
@@ -155,6 +166,11 @@ float outputGain = 1.0;
 int8_t microphoneGain = 36;
 
 /*
+ * Metronome Globals
+ */
+byte metronomeEnable = 0;  
+
+/*
  * General Control Globals
  */
 bool click1 = false; 
@@ -197,8 +213,13 @@ void setup() {
   // Initialize the Codec
   sgtl5000_1.enable();
   sgtl5000_1.inputSelect(AUDIO_INPUT_MIC);
-  sgtl5000_1.volume(0.5);
+  sgtl5000_1.volume(0);
+  sgtl5000_1.dacVolumeRamp();
   sgtl5000_1.micGain(microphoneGain);
+  
+  //Necessary for reducing noise
+  sgtl5000_1.adcHighPassFilterDisable();
+  sgtl5000_1.lineInLevel(0);
 
   // Initialize the SD card
   SPI.setMOSI(SDCARD_MOSI_PIN);
@@ -230,6 +251,9 @@ void setup() {
   for (int i = 0; i < 4; ++i)
     synth_mixer[TOTAL_SYNTH_MIXERS - 1].gain(i, i < SECONDARY_SYNTH_MIXERS ? 1.0 / SECONDARY_SYNTH_MIXERS : 0.0);
 
+  //Make the metronome kinda quiet
+  metronome_mixer.gain(0,0.05);
+  
   //Initialize Sequences
   for (byte s = 0; s < numSequences; s++){
     for (byte n = 0; n < numSequenceNotes; n++){
@@ -288,4 +312,5 @@ void loop() {
   recordAndStore();
   checkAndPlaySequence();
   playKeyboard();
+  metronomePlayer();
 }

@@ -1,5 +1,5 @@
 // Overall Navigation Variables
-const byte numMenus = 3;
+const byte numMenus = 4;
 bool selectedPrev = false;
 bool menuSelectPrev = false;
 int8_t menuCount = 0;
@@ -9,7 +9,6 @@ int valChange = 0;
 
 //Sequencer Navigation Variables
 byte chanPrev = 1;
-float bpmCount = bpm;
 int bpmChange = 0;
 bool bpmSelectPrev = false;
 bool holdSequencePrev = false;
@@ -30,20 +29,26 @@ byte scrubAdjust = 50;
 float playPosition = 0;
 bool recordSelectPrev = 0;
 
+//Metronome Navigation Variables
+bool metronomeEnableSelectPrev = 0;
+bool armLocation = 0;
+
 void menuCheck() {
   //Change main function and reset controls
   if (menuSelect and !menuSelectPrev){
+    Serial.println("changed menus");
     menuScreen = menuScreen + 1;
     if (menuScreen > numMenus){
       menuScreen = 1;
     }
     menuCount = 0;
     menuChange = 0;
+    bpmChange = 0;
     valCount = 0;
     valChange = 0;
     encoders[0] = 0;
     encoders[1] = 0;
-    encoders [3] = 0;
+    encoders [2] = 0;
     selected = false;
   }
   menuSelectPrev = menuSelect;
@@ -141,11 +146,12 @@ void menuCheck() {
       }
     }
     bpmSelectPrev = click3;
-    bpmChange = encoders[2]-bpmChange;
-    bpmCount = bpmCount + bpmChange;
-    bpmChange = encoders[2];
+    
     if (bpmSelect){
-      bpm = bpmCount;
+      bpmChange = encoders[2]-bpmChange;
+      bpm = bpm + bpmChange;
+      if (bpm < 0) bpm = 0;
+      bpmChange = encoders[2];
       ms_per_beat = 1.0/(bpm/60000.0);
     }
   }
@@ -213,7 +219,7 @@ void menuCheck() {
       //Adjust recording output gain
       outputGainChange = encoders[0]-outputGainChange;
       outputGain = outputGain + 0.1*outputGainChange;
-      if (outputGain > 9.90){
+      if (outputGain > 9.90){https://manual.audacityteam.org/index.html
         outputGain = 9.90;
       }
       if (outputGain < 0){
@@ -290,8 +296,8 @@ void menuCheck() {
         }
         else if (inputMethod == 2){
           inputMethod = 0;
-          sgtl5000_1.inputSelect(AUDIO_INPUT_MIC);
           turnOffLEDs();
+          sgtl5000_1.inputSelect(AUDIO_INPUT_MIC);
           record_output_mixer.gain(1,0);
         } 
       }
@@ -321,6 +327,33 @@ void menuCheck() {
       }
     }
   }
+
+  //Actions for Metronome Menu
+  if (menuScreen == 4){
+    //Toggle Metronome 
+    if (click1 and !metronomeEnableSelectPrev){
+      if (metronomeEnable == 2){
+        metronomeEnable = 0;
+        metronome.stop();
+      }
+      else if (metronomeEnable == 0){
+        metronomeEnable = 1;
+      }
+      else if (metronomeEnable == 1){
+        metronomeEnable = 2;
+      }
+    } 
+    metronomeEnableSelectPrev = click1;
+
+    //Adjust system bpm
+    bpmChange = encoders[0]-bpmChange;
+    bpm = bpm + bpmChange;
+    if (bpm < 0) bpm = 0;
+    bpmChange = encoders[0];
+    ms_per_beat = 1.0/(bpm/60000.0);
+    
+  }
+  Serial.println(bpmChange);
 }
 
 void staticMenu() {
@@ -580,6 +613,57 @@ void staticMenu() {
           display.println("H");
         }
       }
+    }
+  }
+
+  //Graphics for Sequencer Menu
+  if (menuScreen == 4){
+    //Write out header
+    display.clearDisplay();
+    display.setTextSize(1);
+    display.setTextColor(SSD1306_WHITE);
+    display.setCursor(38, 0);
+    display.print("Metronome");
+    display.drawLine(0,10,127,10, WHITE);
+    display.drawLine(64,10,64,63, WHITE);
+    display.drawLine(0,10,0,63, WHITE);
+    display.drawLine(0,63,127,63, WHITE);
+    display.fillRect(64,10,127,63, SSD1306_WHITE);
+
+    //Show BPM readout
+    display.setTextSize(2);
+    display.setCursor(14, 22);
+    display.print(int(bpm));
+    display.setTextSize(2);
+    display.setCursor(14, 37);
+    display.print("BPM");
+    display.setTextSize(1);
+    
+
+    //Show metronome animation
+    if (metronomeEnable == 2){
+      if (armLocation){
+        display.drawLine(96,63,76,20, BLACK);
+      }
+      else{
+        display.drawLine(96,63,116,20, BLACK);  
+      }
+    }
+    else if (metronomeEnable == 1){
+      display.setTextSize(2);
+      display.setCursor(81, 29);
+      display.setTextColor(SSD1306_BLACK, SSD1306_WHITE);
+      display.print("TAP");
+      display.setTextSize(1);
+      display.setTextColor(SSD1306_WHITE);
+    }
+    else if (metronomeEnable == 0){
+      display.setTextSize(2);
+      display.setCursor(81, 29);
+      display.setTextColor(SSD1306_BLACK, SSD1306_WHITE);
+      display.print("OFF");
+      display.setTextSize(1);
+      display.setTextColor(SSD1306_WHITE);
     }
   }
   display.display();
