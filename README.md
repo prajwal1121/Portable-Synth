@@ -9,4 +9,4 @@
 * Synthesizer and OLED Menu: https://www.youtube.com/watch?v=1_bmlssc-IQ&t=5s
 * Endless Sequencer: https://www.youtube.com/watch?v=U5Ci-TUZ0MY
 
-![Device Image](https://i.imgur.com/o5dMfXk.jpg?1)
+![Device Image](https://i.imgur.com/wGqdGyz.jpg)
