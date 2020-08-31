@@ -36,7 +36,6 @@ bool armLocation = 0;
 void menuCheck() {
   //Change main function and reset controls
   if (menuSelect and !menuSelectPrev){
-    Serial.println("changed menus");
     menuScreen = menuScreen + 1;
     if (menuScreen > numMenus){
       menuScreen = 1;
@@ -49,6 +48,7 @@ void menuCheck() {
     encoders[0] = 0;
     encoders[1] = 0;
     encoders [2] = 0;
+    if (metronomeEnable == 1) metronomeEnable = 1;
     selected = false;
   }
   menuSelectPrev = menuSelect;
