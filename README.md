@@ -1,5 +1,7 @@
 # Portable Synth
 ### An OP-1 style portable DAW based around Teensy 4.1
+Built using the awesome Teensy Audio Library by Paul Stoffregen
+ 
 This project is still in progress. Check back for updates and bug fixes
 
 ##### Check out the following links for development updates and more information about how to use the project files above
