@@ -77,8 +77,6 @@ AudioMixer4              secondary_mixer2;
 
 AudioMixer4              primary_mixer;
 
-AudioFilterStateVariable delayFilter;
-AudioEffectDelay         delay1;
 AudioOutputI2S           i2s1;
 
 AudioConnection          patchCord1(lfo, 0, filter1, 1);
@@ -96,7 +94,7 @@ AudioConnection          patchCord11(noise1, 0, wave1mix, 2);
 
 AudioConnection          patchCord12(wave2a, 0, wave2mix, 0);
 AudioConnection          patchCord13(wave2b, 0, wave2mix, 1);
-AudioConnection          patchCord14(noise2, 0, wave2mix, 3);
+AudioConnection          patchCord14(noise2, 0, wave2mix, 2);
 
 AudioConnection          patchCord15(wave3a, 0, wave3mix, 0);
 AudioConnection          patchCord16(wave3b, 0, wave3mix, 1);
@@ -150,14 +148,10 @@ AudioConnection          patchCord55(filter7, 0, secondary_mixer2, 2);
 AudioConnection          patchCord56(filter8, 0, secondary_mixer2, 3);
 
 AudioConnection          patchCord57(secondary_mixer1, 0, primary_mixer, 0);
-AudioConnection          patchCord58(secondary_mixer1, 0, primary_mixer, 1);
+AudioConnection          patchCord58(secondary_mixer2, 0, primary_mixer, 1);
 
-AudioConnection          patchCord59(primary_mixer, 0, delay1, 0);
-AudioConnection          patchCord60(delay1, 0, delayFilter, 0);
-AudioConnection          patchCord61(delayFilter, 0, primary_mixer, 3);
-
-AudioConnection          patchCord62(primary_mixer, 0, i2s1, 0);
-AudioConnection          patchCord63(primary_mixer, 0, i2s1, 1);
+AudioConnection          patchCord59(primary_mixer, 0, i2s1, 0);
+AudioConnection          patchCord60(primary_mixer, 0, i2s1, 1);
 
 AudioControlSGTL5000     sgtl5000_1;     
 // GUItool: end automatically generated code
