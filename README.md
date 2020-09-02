@@ -9,7 +9,6 @@ This project is still in progress. Check back for updates and bug fixes
 * Part 2: http://prajtm.scripts.mit.edu/projects/portfolio/portable-synth-concept-design/
 
 ##### Or watch the demo videos here
-* String Synthesizer and OLED Menu: https://www.youtube.com/watch?v=1_bmlssc-IQ&t=5s
 * Endless Sequencer: https://www.youtube.com/watch?v=U5Ci-TUZ0MY
 * Recording and Sampling: https://www.youtube.com/watch?v=KuPWz8McP5k
 * Polyphonic Synthesizer: https://www.youtube.com/watch?v=QcZ3WIZ24l4
