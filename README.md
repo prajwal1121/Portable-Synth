@@ -11,6 +11,6 @@ This project is still in progress. Check back for updates and bug fixes
 ##### Or watch the demo videos here
 * Endless Sequencer: https://www.youtube.com/watch?v=U5Ci-TUZ0MY
 * Recording and Sampling: https://www.youtube.com/watch?v=KuPWz8McP5k
-* Polyphonic Synthesizer: https://www.youtube.com/watch?v=QcZ3WIZ24l4
+* Additive Synthesizer: https://www.youtube.com/watch?v=QcZ3WIZ24l4
 
 ![Device Image](https://i.imgur.com/wGqdGyz.jpg)
