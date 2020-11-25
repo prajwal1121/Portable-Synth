@@ -13,6 +13,6 @@ This project is still in progress, and will be for a while. Check back often for
 ##### Or watch the demo videos here
 * Endless Sequencer: https://www.youtube.com/watch?v=U5Ci-TUZ0MY
 * Recording and Sampling: https://www.youtube.com/watch?v=KuPWz8McP5k
-* Additive Synthesizer: https://www.youtube.com/watch?v=QcZ3WIZ24l4
+* Subtractive Synthesizer: https://www.youtube.com/watch?v=QcZ3WIZ24l4
 
 ![Device Image](https://i.imgur.com/wGqdGyz.jpg)
