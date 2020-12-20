@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE eagle SYSTEM "eagle.dtd">
+<eagle version="9.3.2">
+<drawing>
+<settings>
+<setting alwaysvectorfont="no"/>
+<setting verticaltext="up"/>
+</settings>
+<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
+<layers>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="2" name="Route2" color="16" fill="1" visible="no" active="yes"/>
+<layer number="3" name="Route3" color="17" fill="1" visible="no" active="yes"/>
+<layer number="4" name="Route4" color="18" fill="1" visible="no" active="yes"/>
+<layer number="5" name="Route5" color="19" fill="1" visible="no" active="yes"/>
+<layer number="6" name="Route6" color="25" fill="1" visible="no" active="yes"/>
+<layer number="7" name="Route7" color="26" fill="1" visible="no" active="yes"/>
+<layer number="8" name="Route8" color="27" fill="1" visible="no" active="yes"/>
+<layer number="9" name="Route9" color="28" fill="1" visible="no" active="yes"/>
+<layer number="10" name="Route10" color="29" fill="1" visible="no" active="yes"/>
+<layer number="11" name="Route11" color="30" fill="1" visible="no" active="yes"/>
+<layer number="12" name="Route12" color="20" fill="1" visible="no" active="yes"/>
+<layer number="13" name="Route13" color="21" fill="1" visible="no" active="yes"/>
+<layer number="14" name="Route14" color="22" fill="1" visible="no" active="yes"/>
+<layer number="15" name="Route15" color="23" fill="1" visible="no" active="yes"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
+<layer number="20" name="Dimension" color="24" fill="1" visible="yes" active="yes"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="29" name="tStop" color="7" fill="3" visible="yes" active="yes"/>
+<layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
+<layer number="31" name="tCream" color="7" fill="4" visible="yes" active="yes"/>
+<layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
+<layer number="33" name="tFinish" color="6" fill="3" visible="no" active="yes"/>
+<layer number="34" name="bFinish" color="6" fill="6" visible="no" active="yes"/>
+<layer number="35" name="tGlue" color="7" fill="4" visible="no" active="yes"/>
+<layer number="36" name="bGlue" color="7" fill="5" visible="no" active="yes"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="no" active="yes"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="no" active="yes"/>
+<layer number="39" name="tKeepout" color="4" fill="11" visible="yes" active="yes"/>
+<layer number="40" name="bKeepout" color="1" fill="11" visible="yes" active="yes"/>
+<layer number="41" name="tRestrict" color="4" fill="10" visible="yes" active="yes"/>
+<layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
+<layer number="43" name="vRestrict" color="2" fill="10" visible="yes" active="yes"/>
+<layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
+<layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
+<layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="88" name="SimResults" color="9" fill="1" visible="yes" active="yes"/>
+<layer number="89" name="SimProbes" color="9" fill="1" visible="yes" active="yes"/>
+<layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
+<layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
+<layer number="93" name="Pins" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="94" name="Symbols" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="95" name="Names" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="96" name="Values" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="97" name="Info" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="98" name="Guide" color="6" fill="1" visible="yes" active="yes"/>
+</layers>
+<library>
+<packages>
+<package name="TSSOP-20EP">
+<smd name="P$1" x="0" y="0" dx="4.49" dy="3.29" layer="1"/>
+<smd name="P$2" x="-2.925" y="2.97" dx="0.42" dy="1.78" layer="1"/>
+<smd name="P$3" x="-2.275" y="2.97" dx="0.42" dy="1.78" layer="1"/>
+<smd name="P$4" x="-1.625" y="2.97" dx="0.42" dy="1.78" layer="1"/>
+<smd name="P$5" x="-0.975" y="2.97" dx="0.42" dy="1.78" layer="1"/>
+<smd name="P$6" x="-0.325" y="2.97" dx="0.42" dy="1.78" layer="1"/>
+<smd name="P$7" x="0.325" y="2.97" dx="0.42" dy="1.78" layer="1"/>
+<smd name="P$8" x="0.975" y="2.97" dx="0.42" dy="1.78" layer="1"/>
+<smd name="P$9" x="1.625" y="2.97" dx="0.42" dy="1.78" layer="1"/>
+<smd name="P$10" x="2.275" y="2.97" dx="0.42" dy="1.78" layer="1"/>
+<smd name="P$11" x="2.925" y="2.97" dx="0.42" dy="1.78" layer="1"/>
+<smd name="P$12" x="2.925" y="-2.97" dx="0.42" dy="1.78" layer="1"/>
+<smd name="P$13" x="2.275" y="-2.97" dx="0.42" dy="1.78" layer="1"/>
+<smd name="P$14" x="1.625" y="-2.97" dx="0.42" dy="1.78" layer="1"/>
+<smd name="P$15" x="0.975" y="-2.97" dx="0.42" dy="1.78" layer="1"/>
+<smd name="P$16" x="0.325" y="-2.97" dx="0.42" dy="1.78" layer="1"/>
+<smd name="P$17" x="-0.325" y="-2.97" dx="0.42" dy="1.78" layer="1"/>
+<smd name="P$18" x="-0.975" y="-2.97" dx="0.42" dy="1.78" layer="1"/>
+<smd name="P$19" x="-1.625" y="-2.97" dx="0.42" dy="1.78" layer="1"/>
+<smd name="P$20" x="-2.275" y="-2.97" dx="0.42" dy="1.78" layer="1"/>
+<smd name="P$21" x="-2.925" y="-2.97" dx="0.42" dy="1.78" layer="1"/>
+</package>
+<package name="CREEXTE">
+<smd name="P$1" x="-1.7" y="4.379" dx="0.9" dy="0.5" layer="1"/>
+<smd name="P$2" x="1.7" y="4.379" dx="0.9" dy="0.5" layer="1"/>
+<rectangle x1="-1.65" y1="2.729" x2="-1.15" y2="6.029" layer="1"/>
+<rectangle x1="1.15" y1="2.729" x2="1.65" y2="6.029" layer="1"/>
+<smd name="P$3" x="0" y="4.379" dx="1.3" dy="4.3" layer="1"/>
+<rectangle x1="-1.75" y1="2.629" x2="-1.05" y2="6.129" layer="29"/>
+<rectangle x1="1.05" y1="2.629" x2="1.75" y2="6.129" layer="29"/>
+<rectangle x1="-0.75" y1="2.629" x2="0.75" y2="6.129" layer="29"/>
+<smd name="P$4" x="-2.942325" y="-3.661740625" dx="0.9" dy="0.5" layer="1" rot="R120"/>
+<smd name="P$5" x="-4.642325" y="-0.71725625" dx="0.9" dy="0.5" layer="1" rot="R120"/>
+<rectangle x1="-3.342325" y1="-5.051934375" x2="-2.842325" y2="-1.751934375" layer="1" rot="R120"/>
+<rectangle x1="-4.742325" y1="-2.6270625" x2="-4.242325" y2="0.6729375" layer="1" rot="R120"/>
+<smd name="P$6" x="-3.792325" y="-2.1895" dx="1.3" dy="4.3" layer="1" rot="R120"/>
+<rectangle x1="-3.442325" y1="-5.151934375" x2="-2.742325" y2="-1.651934375" layer="29" rot="R120"/>
+<rectangle x1="-4.842325" y1="-2.7270625" x2="-4.142325" y2="0.7729375" layer="29" rot="R120"/>
+<rectangle x1="-4.542325" y1="-3.9395" x2="-3.042325" y2="-0.4395" layer="29" rot="R120"/>
+<smd name="P$7" x="4.642325" y="-0.717259375" dx="0.9" dy="0.5" layer="1" rot="R240"/>
+<smd name="P$8" x="2.942325" y="-3.66174375" dx="0.9" dy="0.5" layer="1" rot="R240"/>
+<rectangle x1="4.242325" y1="-2.627065625" x2="4.742325" y2="0.672934375" layer="1" rot="R240"/>
+<rectangle x1="2.842325" y1="-5.0519375" x2="3.342325" y2="-1.7519375" layer="1" rot="R240"/>
+<smd name="P$9" x="3.792325" y="-2.1895" dx="1.3" dy="4.3" layer="1" rot="R240"/>
+<rectangle x1="4.142325" y1="-2.727065625" x2="4.842325" y2="0.772934375" layer="29" rot="R240"/>
+<rectangle x1="2.742325" y1="-5.1519375" x2="3.442325" y2="-1.6519375" layer="29" rot="R240"/>
+<rectangle x1="3.042325" y1="-3.9395" x2="4.542325" y2="-0.4395" layer="29" rot="R240"/>
+<text x="2.4" y="4.1" size="0.6096" layer="21">A</text>
+<text x="2.3" y="-4.2" size="0.6096" layer="21" rot="R240">A</text>
+<text x="-5.5" y="0.3" size="0.6096" layer="21" rot="R300">A</text>
+<text x="-2.8" y="-4.6" size="0.6096" layer="21" rot="R300">K</text>
+<text x="5" y="0.6" size="0.6096" layer="21" rot="R240">K</text>
+<text x="-3" y="4.1" size="0.6096" layer="21">K</text>
+<wire x1="-5.78358125" y1="-1.7145" x2="-3.24358125" y2="-0.24638125" width="0.508" layer="31"/>
+<wire x1="-4.434840625" y1="-4.163059375" x2="-1.88468125" y2="-2.69748125" width="0.508" layer="31"/>
+<wire x1="3.2385" y1="-0.264159375" x2="5.72008125" y2="-1.6637" width="0.508" layer="31"/>
+<wire x1="1.80848125" y1="-2.644140625" x2="4.3307" y2="-4.1021" width="0.508" layer="31"/>
+<wire x1="-1.407159375" y1="5.84961875" x2="-1.40208125" y2="2.987040625" width="0.508" layer="31"/>
+<wire x1="1.3716" y1="5.81151875" x2="1.39191875" y2="2.987040625" width="0.508" layer="31"/>
+</package>
+<package name="POWERDI5">
+<smd name="P$1" x="0" y="0" dx="3.36" dy="4.86" layer="1"/>
+<smd name="P$2" x="-0.92" y="-3.982" dx="1.39" dy="1.4" layer="1"/>
+<smd name="P$3" x="0.92" y="-3.982" dx="1.39" dy="1.4" layer="1"/>
+</package>
+<package name="CREEXTE_SINGLE">
+<smd name="K" x="-1.7" y="0" dx="0.9" dy="0.5" layer="1"/>
+<smd name="A" x="1.7" y="0" dx="0.9" dy="0.5" layer="1"/>
+<rectangle x1="-1.65" y1="-1.65" x2="-1.15" y2="1.65" layer="1"/>
+<rectangle x1="1.15" y1="-1.65" x2="1.65" y2="1.65" layer="1"/>
+<smd name="EP" x="0" y="0" dx="1.3" dy="4.3" layer="1"/>
+<rectangle x1="-1.75" y1="-1.75" x2="-1.05" y2="1.75" layer="29"/>
+<rectangle x1="1.05" y1="-1.75" x2="1.75" y2="1.75" layer="29"/>
+<rectangle x1="-0.75" y1="-1.75" x2="0.75" y2="1.75" layer="29"/>
+<text x="2.4" y="-0.279" size="0.6096" layer="21">A</text>
+<text x="-3" y="-0.279" size="0.6096" layer="21">K</text>
+<wire x1="-1.407159375" y1="1.47061875" x2="-1.40208125" y2="-1.391959375" width="0.508" layer="31"/>
+<wire x1="1.3716" y1="1.43251875" x2="1.39191875" y2="-1.391959375" width="0.508" layer="31"/>
+<wire x1="-1.707" y1="1.707" x2="-1.707" y2="-1.707" width="0.127" layer="21"/>
+<wire x1="1.707" y1="-1.707" x2="1.707" y2="1.707" width="0.127" layer="21"/>
+<wire x1="1.707" y1="1.707" x2="1.138" y2="1.707" width="0.127" layer="21"/>
+<wire x1="-1.707" y1="1.707" x2="-1.138" y2="1.707" width="0.127" layer="21"/>
+<wire x1="-1.707" y1="-1.707" x2="-1.138" y2="-1.707" width="0.127" layer="21"/>
+<wire x1="1.707" y1="-1.707" x2="1.138" y2="-1.707" width="0.127" layer="21"/>
+<text x="-1.707" y="2.845" size="0.8128" layer="25">&gt;NAME</text>
+</package>
+</packages>
+<symbols>
+<symbol name="ZXLD1374">
+<wire x1="-10.16" y1="13.97" x2="-10.16" y2="-13.97" width="0.254" layer="94"/>
+<wire x1="-10.16" y1="-13.97" x2="10.16" y2="-13.97" width="0.254" layer="94"/>
+<wire x1="10.16" y1="-13.97" x2="10.16" y2="13.97" width="0.254" layer="94"/>
+<wire x1="10.16" y1="13.97" x2="-10.16" y2="13.97" width="0.254" layer="94"/>
+<pin name="ADJ" x="-15.24" y="12.7" length="middle"/>
+<pin name="REF" x="-15.24" y="10.16" length="middle"/>
+<pin name="TADJ" x="-15.24" y="7.62" length="middle"/>
+<pin name="SHP" x="-15.24" y="5.08" length="middle"/>
+<pin name="STATUS" x="-15.24" y="2.54" length="middle"/>
+<pin name="SGND" x="-15.24" y="0" length="middle"/>
+<pin name="PGND1" x="-15.24" y="-2.54" length="middle"/>
+<pin name="PGND2" x="-15.24" y="-5.08" length="middle"/>
+<pin name="N/C1" x="-15.24" y="-7.62" length="middle"/>
+<pin name="N/C2" x="-15.24" y="-10.16" length="middle"/>
+<pin name="N/C3" x="15.24" y="-10.16" length="middle" rot="R180"/>
+<pin name="N/C4" x="15.24" y="-7.62" length="middle" rot="R180"/>
+<pin name="LX1" x="15.24" y="-5.08" length="middle" rot="R180"/>
+<pin name="LX2" x="15.24" y="-2.54" length="middle" rot="R180"/>
+<pin name="VAUX" x="15.24" y="0" length="middle" rot="R180"/>
+<pin name="VIN" x="15.24" y="2.54" length="middle" rot="R180"/>
+<pin name="ISM" x="15.24" y="5.08" length="middle" rot="R180"/>
+<pin name="FLAG" x="15.24" y="7.62" length="middle" rot="R180"/>
+<pin name="PWM" x="15.24" y="10.16" length="middle" rot="R180"/>
+<pin name="GI" x="15.24" y="12.7" length="middle" rot="R180"/>
+<pin name="HS" x="0" y="19.05" length="middle" rot="R270"/>
+</symbol>
+<symbol name="CREEXTE">
+<pin name="A" x="-17.78" y="0" length="middle"/>
+<pin name="K" x="12.7" y="0" length="middle" rot="R180"/>
+<polygon width="0.254" layer="94">
+<vertex x="-5.08" y="5.08"/>
+<vertex x="-5.08" y="-5.08"/>
+<vertex x="0" y="0"/>
+</polygon>
+<wire x1="-12.7" y1="0" x2="-5.08" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="7.62" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="5.08" x2="0" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="0" x2="-2.54" y2="7.62" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="7.62" x2="0" y2="10.16" width="0.254" layer="94"/>
+<pin name="HS" x="5.08" y="10.16" length="middle" rot="R180"/>
+<pin name="A1" x="17.78" y="0" length="middle"/>
+<pin name="K1" x="48.26" y="0" length="middle" rot="R180"/>
+<polygon width="0.254" layer="94">
+<vertex x="30.48" y="5.08"/>
+<vertex x="30.48" y="-5.08"/>
+<vertex x="35.56" y="0"/>
+</polygon>
+<wire x1="22.86" y1="0" x2="30.48" y2="0" width="0.254" layer="94"/>
+<wire x1="35.56" y1="0" x2="43.18" y2="0" width="0.254" layer="94"/>
+<wire x1="35.56" y1="5.08" x2="35.56" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="33.02" y1="0" x2="33.02" y2="7.62" width="0.254" layer="94"/>
+<wire x1="33.02" y1="7.62" x2="35.56" y2="10.16" width="0.254" layer="94"/>
+<pin name="HS1" x="40.64" y="10.16" length="middle" rot="R180"/>
+<pin name="A2" x="53.34" y="0" length="middle"/>
+<pin name="K2" x="83.82" y="0" length="middle" rot="R180"/>
+<polygon width="0.254" layer="94">
+<vertex x="66.04" y="5.08"/>
+<vertex x="66.04" y="-5.08"/>
+<vertex x="71.12" y="0"/>
+</polygon>
+<wire x1="58.42" y1="0" x2="66.04" y2="0" width="0.254" layer="94"/>
+<wire x1="71.12" y1="0" x2="78.74" y2="0" width="0.254" layer="94"/>
+<wire x1="71.12" y1="5.08" x2="71.12" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="68.58" y1="0" x2="68.58" y2="7.62" width="0.254" layer="94"/>
+<wire x1="68.58" y1="7.62" x2="71.12" y2="10.16" width="0.254" layer="94"/>
+<pin name="HS2" x="76.2" y="10.16" length="middle" rot="R180"/>
+</symbol>
+<symbol name="DS30487">
+<polygon width="0.254" layer="94">
+<vertex x="0" y="2.54"/>
+<vertex x="0" y="-2.54"/>
+<vertex x="2.54" y="0"/>
+</polygon>
+<pin name="A2" x="-12.7" y="-2.54" length="middle"/>
+<pin name="A1" x="-12.7" y="2.54" length="middle"/>
+<pin name="K" x="15.24" y="0" length="middle" rot="R180"/>
+<wire x1="-12.7" y1="2.54" x2="0" y2="2.54" width="0.254" layer="94"/>
+<wire x1="-12.7" y1="-2.54" x2="0" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="0" y1="-2.54" x2="2.54" y2="0" width="0.254" layer="94"/>
+<wire x1="2.54" y1="0" x2="15.24" y2="0" width="0.254" layer="94"/>
+<wire x1="2.54" y1="2.54" x2="2.54" y2="-2.54" width="0.254" layer="94"/>
+</symbol>
+<symbol name="CREEXTE_SINGLE">
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="ZXLD1374">
+<gates>
+<gate name="G$1" symbol="ZXLD1374" x="-7.62" y="5.08"/>
+</gates>
+<devices>
+<device name="" package="TSSOP-20EP">
+<connects>
+<connect gate="G$1" pin="ADJ" pad="P$21"/>
+<connect gate="G$1" pin="FLAG" pad="P$4"/>
+<connect gate="G$1" pin="GI" pad="P$2"/>
+<connect gate="G$1" pin="HS" pad="P$1"/>
+<connect gate="G$1" pin="ISM" pad="P$5"/>
+<connect gate="G$1" pin="LX1" pad="P$9"/>
+<connect gate="G$1" pin="LX2" pad="P$8"/>
+<connect gate="G$1" pin="N/C1" pad="P$13"/>
+<connect gate="G$1" pin="N/C2" pad="P$12"/>
+<connect gate="G$1" pin="N/C3" pad="P$11"/>
+<connect gate="G$1" pin="N/C4" pad="P$10"/>
+<connect gate="G$1" pin="PGND1" pad="P$15"/>
+<connect gate="G$1" pin="PGND2" pad="P$14"/>
+<connect gate="G$1" pin="PWM" pad="P$3"/>
+<connect gate="G$1" pin="REF" pad="P$20"/>
+<connect gate="G$1" pin="SGND" pad="P$16"/>
+<connect gate="G$1" pin="SHP" pad="P$18"/>
+<connect gate="G$1" pin="STATUS" pad="P$17"/>
+<connect gate="G$1" pin="TADJ" pad="P$19"/>
+<connect gate="G$1" pin="VAUX" pad="P$7"/>
+<connect gate="G$1" pin="VIN" pad="P$6"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="CREEXTE" prefix="LED">
+<gates>
+<gate name="G$1" symbol="CREEXTE" x="-5.08" y="2.54"/>
+</gates>
+<devices>
+<device name="" package="CREEXTE">
+<connects>
+<connect gate="G$1" pin="A" pad="P$2"/>
+<connect gate="G$1" pin="A1" pad="P$5"/>
+<connect gate="G$1" pin="A2" pad="P$8"/>
+<connect gate="G$1" pin="HS" pad="P$3"/>
+<connect gate="G$1" pin="HS1" pad="P$6"/>
+<connect gate="G$1" pin="HS2" pad="P$9"/>
+<connect gate="G$1" pin="K" pad="P$1"/>
+<connect gate="G$1" pin="K1" pad="P$4"/>
+<connect gate="G$1" pin="K2" pad="P$7"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="DS30487">
+<gates>
+<gate name="G$1" symbol="DS30487" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="POWERDI5">
+<connects>
+<connect gate="G$1" pin="A1" pad="P$2"/>
+<connect gate="G$1" pin="A2" pad="P$3"/>
+<connect gate="G$1" pin="K" pad="P$1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
+</drawing>
+</eagle>
