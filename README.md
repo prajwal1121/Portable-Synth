@@ -1,5 +1,5 @@
 # Portable Synth
-### An OP-1 style portable groovebox based around Teensy 4.1
+### An OP-1 inspired portable groovebox based around Teensy 4.1
 Built using the awesome Teensy Audio Library
  
 This project is still in progress, and will be for a while. Check back often for updates and bug fixes
