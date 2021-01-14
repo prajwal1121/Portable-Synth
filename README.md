@@ -4,7 +4,7 @@ Built using the awesome Teensy Audio Library
  
 This project is still in progress, and will be for a while. Check back often for updates and bug fixes
 
-**Current Status (1/13/2021)::white_check_mark:
+**Current Status (1/13/2021)::white_check_mark:**
 ##### Check out the following links for development updates and more information about how to use the project files above
 * Part 1 (Version 1): http://prajtm.scripts.mit.edu/projects/portfolio/portable-synth-v1-prototype/
 * Part 2 (Version 1): http://prajtm.scripts.mit.edu/projects/portfolio/portable-synth-concept-design/
