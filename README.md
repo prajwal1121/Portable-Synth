@@ -14,6 +14,9 @@ This project is still in progress, and will be for a while. Check back often for
 ##### Or watch the demo videos here
 ###### V2
 * V2 Hardware and Synth with Mod Matrix: https://youtu.be/yj9AeDa9qw8
+* Sample Packs and Step Sequencer: https://youtu.be/XyqohSevqoo
+* Build: https://youtu.be/Mdk-aUEtNno
+
 ###### V1
 * Endless Sequencer: https://youtu.be/U5Ci-TUZ0MY
 * Recording and Sampling: https://youtu.be/KuPWz8McP5k
