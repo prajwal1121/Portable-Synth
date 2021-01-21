@@ -5,8 +5,6 @@ byte prevSequenceLoc = 255;
 bool playSequence = 0;
 bool playSequenceButtonPrev = 0;
 bool eraseSequenceButtonPrev = 0;
-EXTMEM byte sampleIsPlaying[12] = {255,255,255,255,255,255,255,255,255,255,255,255};
-EXTMEM byte assigningNotPlaying[12] = {255,255,255,255,255,255,255,255,255,255,255,255};
 byte seqSection = 0;
 byte seqSectionPrev = 0;
 byte seqDirection = 0;
@@ -175,10 +173,7 @@ void menuCheckSequencer() {
           }
         }
         seqSection = 1;
-      }
-      
-    break;
-    case 1:
+      }   
     break;
   }
 }
@@ -262,8 +257,6 @@ void staticMenuSequencer() {
       oled.print(bpm);
       oled.setTextColor(WHITE,BLACK);
       oled.print(F("BPM"));
-    break;
-    case 1:
     break;
   }
 }

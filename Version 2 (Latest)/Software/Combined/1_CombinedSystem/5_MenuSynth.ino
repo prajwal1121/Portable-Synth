@@ -1,4 +1,4 @@
-const byte numSynthMenus=5;
+PROGMEM const byte numSynthMenus=5;
 
 int8_t octave = 0;
 
@@ -470,7 +470,6 @@ void menuCheckSynth() {
           if (enc2Count>1) enc2Count= 1;
           chosenModOption = enc2Count;  
           enc2Change = encoders[1];
-          Serial.println(LFOFrequency[chosenModSource]);
           if (click2 and !click2Prev){
             if (!chosenModOption) {
               modEditScreen = 1;
@@ -1504,7 +1503,7 @@ void switchWave (byte oscillatorNum){
     }
 }
 
-const byte KEY_BUFFER_SIZE = 8;
+PROGMEM const byte KEY_BUFFER_SIZE = 8;
 
 void keyBuff(byte note, bool noteState) {
   static byte keybuff[KEY_BUFFER_SIZE];

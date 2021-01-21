@@ -29,8 +29,8 @@ bool synthButton = 0;
 bool samplerButton = 0;
 bool sequencerButton = 0;
 
-#define joyX 25
-#define joyY 24
+PROGMEM const byte joyX = 25;
+PROGMEM const byte joyY = 24;
 
 void readInputs(){   
   Wire.requestFrom(9, 8);

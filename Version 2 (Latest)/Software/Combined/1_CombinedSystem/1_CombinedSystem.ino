@@ -9,7 +9,6 @@
 #include <SPI.h>
 #include <SerialFlash.h>
 #include <WS2812Serial.h>
-#include <ArduinoTapTempo.h>
 
 #ifdef USE_SdFat_
   #include <SdFat.h>
@@ -24,31 +23,30 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1351.h>
 
-#define OLED_RESET -1 
+PROGMEM const int8_t OLED_RESET = -1; 
 // Screen dimensions
-#define SCREEN_WIDTH  128
-#define SCREEN_HEIGHT 128 
+PROGMEM const byte SCREEN_WIDTH = 128;
+PROGMEM const byte SCREEN_HEIGHT = 128;
 
 //Extra pins for SPI
-#define DC_PIN   40
-#define CS_PIN   38
-#define RST_PIN  41
+PROGMEM const byte DC_PIN = 40;
+PROGMEM const byte CS_PIN = 38;
+PROGMEM const byte RST_PIN = 41;
 
 Adafruit_SSD1351 oled = Adafruit_SSD1351(SCREEN_WIDTH, SCREEN_HEIGHT, &SPI1, CS_PIN, DC_PIN, RST_PIN);
 
 // Color definitions
-#define BLACK           0x0000
-#define BLUE            0x001F
-#define RED             0xFA20
-#define GREEN           0x47E0
-#define CYAN            0x07FF
-#define MAGENTA         0xF81F
-#define PURPLE          0x6011
-#define YELLOW          0xFD60  
-#define WHITE           0xFFFF
-#define LAVENDER        0xfcebff
-#define DARKGREY        0x39C7
-#define LIGHTGREY       0x6B6D
+PROGMEM const uint16_t BLACK = 0x0000;
+PROGMEM const uint16_t BLUE = 0x001F;
+PROGMEM const uint16_t RED = 0xFA20;
+PROGMEM const uint16_t GREEN = 0x47E0;
+PROGMEM const uint16_t CYAN = 0x07FF;
+PROGMEM const uint16_t MAGENTA = 0xF81F;
+PROGMEM const uint16_t PURPLE = 0x6011;
+PROGMEM const uint16_t YELLOW = 0xFD60;
+PROGMEM const uint16_t WHITE = 0xFFFF;
+PROGMEM const uint16_t DARKGREY = 0x39C7;
+PROGMEM const uint16_t LIGHTGREY = 0x6B6D;
 
 /*Pin configurations and settings for
  * Neopixels
@@ -56,7 +54,7 @@ Adafruit_SSD1351 oled = Adafruit_SSD1351(SCREEN_WIDTH, SCREEN_HEIGHT, &SPI1, CS_
 const int numled = 10;
 const int pin = 17;
 
-byte drawingMemory[numled*3];         //  3 bytes per LED
+DMAMEM byte drawingMemory[numled*3];  //  3 bytes per LED
 DMAMEM byte displayMemory[numled*12]; // 12 bytes per LED
 
 WS2812Serial leds(numled, displayMemory, drawingMemory, pin, WS2812_GRB);
@@ -64,18 +62,17 @@ WS2812Serial leds(numled, displayMemory, drawingMemory, pin, WS2812_GRB);
 /*Pin configurations and settings for
  * LEDs
  */
-#define enc1LED 32
-#define enc2LED 31
-#define enc3LED 30
-#define enc4LED 29
+PROGMEM const byte enc1LED = 32;
+PROGMEM const byte enc2LED = 31;
+PROGMEM const byte enc3LED = 30;
+PROGMEM const byte enc4LED = 29;
 
 /*Pin configurations SD and Flash
  * Memory
  */
-#define FLASHCHIP_CS_PIN 6
-//#define SDCARD_CS_PIN  BUILTIN_SDCARD  
-#define SDCARD_MOSI_PIN  11  
-#define SDCARD_SCK_PIN   13
+PROGMEM const byte FLASHCHIP_CS_PIN = 6;
+PROGMEM const byte SDCARD_MOSI_PIN = 11;  
+PROGMEM const byte SDCARD_SCK_PIN = 13;
 
 /*
  * ASDT Output
@@ -337,8 +334,8 @@ byte function = 0;
 /*
  * Sampler Stuff
  */
-#define numSampleFiles 12
-#define maxSampleLength 1200000
+PROGMEM const byte numSampleFiles = 12;
+PROGMEM const long maxSampleLength = 1200000;
 struct samples {
   char fileName[20];
 };
@@ -358,10 +355,12 @@ char adsrNames[4] = {'A','D','S','R'};
 //Sequencer Stuff
 EXTMEM bool stepSequence[32][12];
 EXTMEM bool stepSynth[32][24];
+EXTMEM byte sampleIsPlaying[12];
+EXTMEM byte assigningNotPlaying[12];
 float bpm = 120;
 float bpmPrev = bpm;
-const byte numStepsInSequence = 32;
-const byte numStepsOnScreen = 16;
+PROGMEM const byte numStepsInSequence = 32;
+PROGMEM const byte numStepsOnScreen = 16;
 
 /*
  * Synth Stuff
@@ -397,7 +396,7 @@ PROGMEM const int16_t sineWave[257] = {
    -4808, -4011, -3212, -2410, -1608,  -804,     0
   }; 
 
-#define numOscillators 3 
+PROGMEM const byte numOscillators = 3; 
 byte waveShape[numOscillators] = {0,0,0};
 float waveFrequency[numOscillators] = {2.0,2.0,2.0};
 float waveAmplitude[numOscillators] = {0.0,1.0,1.0};
@@ -419,16 +418,15 @@ float detuneFactor = 1;
 int filterFreq = 1000;
 float filterQ = 1.0;
 
-#define numModOctaves 2
+PROGMEM const byte numModOctaves = 2;
 
-#define envParameters 4 
+PROGMEM const byte envParameters = 4; 
 float adsr[envParameters] = {10.5,35.0,1.0,300};
 
 /*
  * Output Stuff
  */
 float outputVolume[2] = {1.0,0.2};//{sampler,synth}
-
 
 /*
  * A thing for volume
@@ -638,7 +636,10 @@ void setup() {
       stepSynth[n][e] = 0;
     }
   }
-
+  for (byte n = 0; n < 12; n++){
+    sampleIsPlaying[n] = 255;
+    assigningNotPlaying[n] = 255;
+  }
   /*
    * Audio Output Setup   
    */
@@ -754,7 +755,7 @@ void loop() {
 //    Serial.print(F("Memory: "));
 //    Serial.print(AudioMemoryUsage());
 //    Serial.print(F(","));
-//    Serial.println(freeMem());
+//    Serial.println(AudioMemoryUsageMax());
 //    last_time_print = millis();
 //  }
 }

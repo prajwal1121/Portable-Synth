@@ -19,8 +19,8 @@ bool mainSelectPrev = 0;
 bool rightPrev = 0;
 bool leftPrev = 0;
 
-int16_t color1 = WHITE;
-int16_t color2 = WHITE;
+uint16_t color1 = WHITE;
+uint16_t color2 = WHITE;
 
 //Switch between different device functions
 bool synthButtonPrev = 0;

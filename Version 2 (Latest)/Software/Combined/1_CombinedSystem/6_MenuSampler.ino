@@ -1,8 +1,8 @@
 // Overall Navigation Variables for Sampler
 byte chosenFile = 0;
-const byte fileNameLength = 80;
-const byte checkChar = 118;//ASCII "v"
-const byte onScreenItems = 11;
+PROGMEM const byte fileNameLength = 80;
+PROGMEM const byte checkChar = 118;//ASCII "v"
+PROGMEM const byte onScreenItems = 11;
 bool notInRoot = 0;
 byte topItem = 1;
 byte topItemPrev = 1;
@@ -59,7 +59,6 @@ void menuCheckSampler() {
                 strcat(previewfileNameBuff,newfileNameBuff);
                 File entry = SD.open(previewfileNameBuff);
                 unsigned long ln = entry.size();
-                Serial.println(ln);
                 entry.close();
                 SerialFlashFile ff = SerialFlash.open(samps[b].fileName);
                 oled.setTextColor(RED,BLACK);
