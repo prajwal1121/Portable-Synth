@@ -13,9 +13,10 @@ This project is still in progress, and will be for a while. Check back often for
 
 ##### Or watch the demo videos here
 ###### V2
-* V2 Hardware and Synth with Mod Matrix: https://youtu.be/yj9AeDa9qw8
-* Sample Packs and Step Sequencer: https://youtu.be/XyqohSevqoo
+* Audio Recording and FM Radio: https://youtu.be/2ahzlKvuJ6E
 * Build: https://youtu.be/Mdk-aUEtNno
+* Sample Packs and Step Sequencer: https://youtu.be/XyqohSevqoo
+* V2 Hardware and Synth with Mod Matrix: https://youtu.be/yj9AeDa9qw8
 
 ###### V1
 * Endless Sequencer: https://youtu.be/U5Ci-TUZ0MY
