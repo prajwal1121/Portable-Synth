@@ -1,0 +1,34 @@
+{
+  "name": "Audio",
+  "frameworks": "Arduino",
+  "platforms": "Teensy",
+  "keywords": "sound, audio, FFT, filter, effect",
+  "description": "Teensy Audio Library",
+  "url": "http://www.pjrc.com/teensy/td_libs_Audio.html",
+  "version": "1.3",
+  "export": {
+    "exclude": [
+      "gui",
+      "extras"
+    ]
+  },
+  "authors":
+  {
+    "name": "Paul Stoffregen",
+    "maintainer": true
+  },
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/PaulStoffregen/Audio"
+  },
+  "dependencies":
+  {
+    "name": "SerialFlash",
+    "frameworks": "arduino"
+  },
+  "examples": [
+    "examples/*/*.ino",
+    "examples/*/*/*.ino"
+  ]
+}

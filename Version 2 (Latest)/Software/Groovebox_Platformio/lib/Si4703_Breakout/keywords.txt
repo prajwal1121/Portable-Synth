@@ -1,0 +1,7 @@
+Si4703_Breakout	KEYWORD1
+powerOn	KEYWORD2
+setChannel	KEYWORD2
+seekUp	KEYWORD2
+seekDown	KEYWORD2
+setVolume	KEYWORD2
+readRDS	KEYWORD2
