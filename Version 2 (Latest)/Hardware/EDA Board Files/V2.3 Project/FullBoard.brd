@@ -263,6 +263,14 @@
 <wire x1="2.81" y1="85.38" x2="3.59" y2="86.16" width="0.254" layer="26"/>
 <wire x1="3.59" y1="86.16" x2="3.59" y2="86.18" width="0.254" layer="26"/>
 <text x="168.01" y="46.07" size="1.4224" layer="26" rot="MR270">SI4703 Breakout</text>
+<text x="231.8" y="18.8" size="0.8128" layer="26" rot="MR0">Attach LiPo</text>
+<text x="230.2" y="17.8" size="0.8128" layer="26" rot="MR0">Here</text>
+<wire x1="229" y1="20.4" x2="229.6" y2="19.8" width="0.1524" layer="26"/>
+<wire x1="229" y1="20.4" x2="228.4" y2="19.8" width="0.1524" layer="26"/>
+<wire x1="229.6" y1="17.6" x2="229" y2="17" width="0.1524" layer="26"/>
+<wire x1="229" y1="17" x2="228.4" y2="17.6" width="0.1524" layer="26"/>
+<text x="229.7" y="12.2" size="1.778" layer="26" rot="MR0">+</text>
+<text x="229.54" y="23.39" size="2.1844" layer="26" rot="MR0">-</text>
 </plain>
 <libraries>
 <library name="Resistor_Capacitor" urn="urn:adsk.eagle:library:15122775">
@@ -1774,6 +1782,28 @@ Used as a test point connection for pogo pins or other debugging tools.
 &lt;/ul&gt;&lt;/p&gt;</description>
 <smd name="P$1" x="0" y="0" dx="1.27" dy="1.27" layer="1" roundness="100" cream="no"/>
 </package>
+<package name="1X01" urn="urn:adsk.eagle:footprint:37642/1" library_version="1">
+<description>&lt;h3&gt;Plated Through Hole&lt;/h3&gt;
+&lt;p&gt;Specifications:
+&lt;ul&gt;&lt;li&gt;Pin count:1&lt;/li&gt;
+&lt;li&gt;Pin pitch:0.1"&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;
+&lt;p&gt;Example device(s):
+&lt;ul&gt;&lt;li&gt;CONN_01&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;</description>
+<wire x1="1.27" y1="0.635" x2="0.635" y2="1.27" width="0.2032" layer="21"/>
+<wire x1="0.635" y1="1.27" x2="-0.635" y2="1.27" width="0.2032" layer="21"/>
+<wire x1="-0.635" y1="1.27" x2="-1.27" y2="0.635" width="0.2032" layer="21"/>
+<wire x1="-1.27" y1="0.635" x2="-1.27" y2="-0.635" width="0.2032" layer="21"/>
+<wire x1="-1.27" y1="-0.635" x2="-0.635" y2="-1.27" width="0.2032" layer="21"/>
+<wire x1="-0.635" y1="-1.27" x2="0.635" y2="-1.27" width="0.2032" layer="21"/>
+<wire x1="0.635" y1="-1.27" x2="1.27" y2="-0.635" width="0.2032" layer="21"/>
+<wire x1="1.27" y1="-0.635" x2="1.27" y2="0.635" width="0.2032" layer="21"/>
+<pad name="1" x="0" y="0" drill="1.016" diameter="1.8796" rot="R90"/>
+<text x="-1.27" y="1.397" size="0.6096" layer="25" font="vector" ratio="20">&gt;NAME</text>
+<text x="-1.27" y="-1.524" size="0.6096" layer="27" font="vector" ratio="20" align="top-left">&gt;VALUE</text>
+<rectangle x1="-0.254" y1="-0.254" x2="0.254" y2="0.254" layer="51"/>
+</package>
 </packages>
 <packages3d>
 <package3d name="2X3_SMD" urn="urn:adsk.eagle:package:38267/1" type="box" library_version="1">
@@ -1814,6 +1844,19 @@ TEST_POINT
 </description>
 <packageinstances>
 <packageinstance name="PAD.03X.05"/>
+</packageinstances>
+</package3d>
+<package3d name="1X01" urn="urn:adsk.eagle:package:38028/1" type="box" library_version="1">
+<description>Plated Through Hole
+Specifications:
+Pin count:1
+Pin pitch:0.1"
+
+Example device(s):
+CONN_01
+</description>
+<packageinstances>
+<packageinstance name="1X01"/>
 </packageinstances>
 </package3d>
 </packages3d>
@@ -2639,10 +2682,6 @@ design rules under a new name.</description>
 <attribute name="NAME" x="274.33" y="70.71" size="1.27" layer="25" rot="R180" align="center"/>
 <attribute name="VALUE" x="270.83" y="73.21" size="1.27" layer="27" rot="R180" align="center"/>
 </element>
-<element name="J6" library="SparkFun-Connectors" package="1X02" value="" x="229.09" y="15.75" smashed="yes" rot="MR90">
-<attribute name="NAME" x="230.487" y="14.48" size="0.6096" layer="26" font="vector" ratio="20" rot="MR90"/>
-<attribute name="VALUE" x="227.058" y="14.48" size="0.6096" layer="28" font="vector" ratio="20" rot="MR90"/>
-</element>
 <element name="J7" library="audio amplifier example" library_urn="urn:adsk.eagle:library:970892" package="1981584-1" package3d_urn="urn:adsk.eagle:package:970926/2" value="1981584-1" x="281.03" y="9.68" smashed="yes" rot="MR270">
 <attribute name="MFPN" value="" x="434.7" y="-122.4" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="NAME" x="278.03" y="13.57" size="1.016" layer="26" font="vector" ratio="18" rot="MR0"/>
@@ -3426,6 +3465,12 @@ design rules under a new name.</description>
 <element name="TP2" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" package="PAD.03X.05" package3d_urn="urn:adsk.eagle:package:38285/1" value="TEST-POINT3X5" x="145.49" y="92.46" smashed="yes" rot="MR0"/>
 <element name="TP3" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" package="PAD.03X.05" package3d_urn="urn:adsk.eagle:package:38285/1" value="TEST-POINT3X5" x="273.23" y="46.23" smashed="yes" rot="MR0"/>
 <element name="TP4" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" package="PAD.03X.05" package3d_urn="urn:adsk.eagle:package:38285/1" value="TEST-POINT3X5" x="229.1" y="8.25" smashed="yes" rot="MR0"/>
+<element name="J11" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" package="1X01" package3d_urn="urn:adsk.eagle:package:38028/1" value="" x="229" y="15.34" smashed="yes" rot="MR0">
+<attribute name="VALUE" x="230.27" y="13.816" size="0.6096" layer="28" font="vector" ratio="20" rot="MR0" align="top-left"/>
+</element>
+<element name="J12" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" package="1X01" package3d_urn="urn:adsk.eagle:package:38028/1" value="" x="229" y="22.04" smashed="yes" rot="MR0">
+<attribute name="VALUE" x="230.27" y="20.516" size="0.6096" layer="28" font="vector" ratio="20" rot="MR0" align="top-left"/>
+</element>
 </elements>
 <signals>
 <signal name="GND">
@@ -3447,7 +3492,6 @@ design rules under a new name.</description>
 <contactref element="U4" pad="1"/>
 <contactref element="U4" pad="2"/>
 <contactref element="R23" pad="2"/>
-<contactref element="J6" pad="2"/>
 <contactref element="Q2" pad="3"/>
 <contactref element="R24" pad="2"/>
 <contactref element="J7" pad="5"/>
@@ -4069,6 +4113,7 @@ design rules under a new name.</description>
 <wire x1="232.02" y1="8.25" x2="232.08" y2="8.31" width="0.254" layer="16"/>
 <wire x1="229.1" y1="8.25" x2="226.16" y2="8.25" width="0.254" layer="16"/>
 <wire x1="226.16" y1="8.25" x2="226.15" y2="8.26" width="0.254" layer="16"/>
+<contactref element="J12" pad="1"/>
 </signal>
 <signal name="SCL">
 <contactref element="U2" pad="13"/>
@@ -4602,7 +4647,6 @@ design rules under a new name.</description>
 <wire x1="268.43" y1="46.23" x2="268.35" y2="46.15" width="0.254" layer="16"/>
 </signal>
 <signal name="LIPO+">
-<contactref element="J6" pad="1"/>
 <contactref element="U$1" pad="P$2"/>
 <contactref element="U$1" pad="P$5"/>
 <wire x1="279.64" y1="21.62" x2="277.14" y2="21.62" width="0.8128" layer="16"/>
@@ -4623,8 +4667,8 @@ design rules under a new name.</description>
 <wire x1="273.190325" y1="21.6" x2="271.067325" y2="23.723" width="1.27" layer="1"/>
 <wire x1="265.27" y1="23.75" x2="263.05" y2="23.75" width="1.27" layer="16"/>
 <wire x1="263.05" y1="23.75" x2="261.9" y2="22.6" width="1.27" layer="16"/>
-<wire x1="254.56" y1="15.26" x2="229.58" y2="15.26" width="1.27" layer="16"/>
-<wire x1="229.09" y1="15.75" x2="229.58" y2="15.26" width="1.27" layer="16"/>
+<wire x1="254.56" y1="15.26" x2="230.6" y2="15.26" width="1.27" layer="16"/>
+<wire x1="230.6" y1="15.26" x2="229.18" y2="15.26" width="1.27" layer="16"/>
 <wire x1="254.56" y1="15.26" x2="261.9" y2="22.6" width="1.27" layer="16"/>
 <wire x1="255.68335" y1="9.8502" x2="257.0498" y2="9.8502" width="1.27" layer="16"/>
 <wire x1="254.58" y1="10.29" x2="255" y2="10.29" width="0.3048" layer="16"/>
@@ -4643,6 +4687,9 @@ design rules under a new name.</description>
 <wire x1="257.4" y1="9.5" x2="257.0498" y2="9.8502" width="1.27" layer="16"/>
 <wire x1="271.067325" y1="23.723" x2="265.297" y2="23.723" width="1.21" layer="1"/>
 <wire x1="265.27" y1="23.75" x2="265.297" y2="23.723" width="1.21" layer="1"/>
+<contactref element="J11" pad="1"/>
+<wire x1="229.18" y1="15.26" x2="229.08" y2="15.26" width="1.27" layer="16"/>
+<wire x1="229.08" y1="15.26" x2="229" y2="15.34" width="1.27" layer="16"/>
 </signal>
 <signal name="CODEC_3.3V">
 <contactref element="C23" pad="1"/>
