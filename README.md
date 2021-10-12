@@ -9,10 +9,10 @@ This project is still in progress, and will be for a while. Check back often for
 **Latest Updates (2/3/2021):** This code is outgrowing the Arduino IDE and I'm finally making the switch to VSCode and Platformio! This means the code will now and henceforth be organized in a more traditional C++ project structure rather than an awkward collections of .ino files. More importantly, the latest groovebox firmware has been reorganized into classes and multiple files in an effort to make it more modulualr and OOP-y. See README in Software folder for more information.
 
 ##### Check out the following links for development updates and more information about how to use the project files above
-* Part 1 (Version 1): http://prajtm.scripts.mit.edu/projects/portfolio/portable-synth-v1-prototype/
-* Part 2 (Version 1): http://prajtm.scripts.mit.edu/projects/portfolio/portable-synth-concept-design/
-* Part 3 (Version 2): http://prajtm.scripts.mit.edu/projects/portfolio/porable-synth-hardware-upgrade/
-* Part 4 (Version 2): http://prajtm.scripts.mit.edu/projects/portfolio/portable-synth-v2/
+* Part 1 (Version 1): http://praj.tech/portfolio/portable-synth-v1-prototype/
+* Part 2 (Version 1): http://praj.tech/portfolio/portable-synth-concept-design/
+* Part 3 (Version 2): http://praj.tech/portfolio/porable-synth-hardware-upgrade/
+* Part 4 (Version 2): http://praj.tech/portfolio/portable-synth-v2/
 
 ##### Or watch the demo videos here
 ###### V2
